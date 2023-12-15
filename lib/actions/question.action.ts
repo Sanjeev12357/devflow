@@ -9,12 +9,12 @@ import { revalidatePath } from "next/cache";
 
 export async function getQuestions(params: GetQuestionsParams) {
   try {
-    connectToDatabase();
+    await connectToDatabase();
 
     const questions = await Question.find({})
       .populate({ path: "tags", model: Tag })
       .populate({ path: "author", model: User })
-      .sort({createdAt:-1});
+      .sort({ createdAt: -1 });
     return { questions };
   } catch (error) {
     console.log(error);
