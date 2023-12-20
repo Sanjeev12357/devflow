@@ -12,11 +12,11 @@ import Question from "@/database/question.model";
 
 export async function getUserById(params: any) {
   try {
-    await connectToDatabase();
+    connectToDatabase();
 
     const { userId } = params;
 
-    const user = await User.findOne({ clerkId: userId });
+    const user = await User.findOne({ userId });
 
     return user;
   } catch (error) {
