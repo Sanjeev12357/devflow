@@ -52,7 +52,7 @@ const LeftSidebar = () => {
           </Link>
 
           <Link href="/sign-up">
-            <Button className="small-medium light-border-2  min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none text-dark400_light900">
+            <Button className="small-medium light-border-2  text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
             <Image
                 src="/assets/icons/sign-up.svg"
                 alt="signup"

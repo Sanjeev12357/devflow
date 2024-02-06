@@ -4,18 +4,18 @@ import React from "react";
 import RenderTag from "./RenderTag";
 
 const hotQuestions = [
-  { _id: 1, title: "How do i use express as a custom server in Nextjs" },
-  { _id: 2, title: "How do i use express as a custom server in Nextjs" },
-  { _id: 3, title: "How do i use express as a custom server in Nextjs" },
-  { _id: 4, title: "How do i use express as a custom server in Nextjs" },
-  { _id: 4, title: "How do i use express as a custom server in Nextjs" },
+  { _id: '1', title: "How do i use express as a custom server in Nextjs" },
+  { _id: '2', title: "How do i use express as a custom server in Nextjs" },
+  { _id: '3', title: "How do i use express as a custom server in Nextjs" },
+  { _id: '4', title: "How do i use express as a custom server in Nextjs" },
+  { _id: '4', title: "How do i use express as a custom server in Nextjs" },
 ];
 const popularTags=[
-    {_id:1,name:"javascript",totalQuestions:5},
-    {_id:2,name:"javas",totalQuestions:5},
-    {_id:3,name:"react",totalQuestions:5},
-    {_id:4,name:"javascript",totalQuestions:5},
-    {_id:5,name:"javascript",totalQuestions:5},
+    {_id:'1',name:"javascript",totalQuestions:5},
+    {_id:'2',name:"javas",totalQuestions:5},
+    {_id:'3',name:"react",totalQuestions:5},
+    {_id:'4',name:"javascript",totalQuestions:5},
+    {_id:'5',name:"javascript",totalQuestions:5},
 ]
 
 const RightSidebar = () => {
