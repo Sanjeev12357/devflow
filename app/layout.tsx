@@ -3,7 +3,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
-
+// eslint-disable-next-line no-unused-vars
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import React from "react";
 import { ThemeProvider } from "@/context/ThemeProvider";
 
