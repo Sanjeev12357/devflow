@@ -5,57 +5,16 @@ import NoResult from "@/components/shared/NoResult";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 
 import Link from "next/link";
 
-const questions= [
-  {
-    _id: "1",
-    title: "cascading deletes in sql alchemy",
-    tags: [
-      { _id: "1", name: "python" },
-      { _id: "2", name: "sql" },
-    ],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "john-doe.jpg", // Replace with the actual picture path
-    },
-    upvotes: 10,
-    views: 100,
-    answers: [
-      // Add actual objects based on your answer structure
-      { /* Answer 1 properties */ },
-      { /* Answer 2 properties */ },
-    ],
-    createdAt: new Date("2021-09-01T12:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "ORM vs Raw SQL performance",
-    tags: [
-      { _id: "1", name: "python" },
-      { _id: "3", name: "database" },
-    ],
-    author: {
-      _id: "2",
-      name: "Jane Smith",
-      picture: "jane-smith.jpg", // Replace with the actual picture path
-    },
-    upvotes: 15,
-    views: 120,
-    answers: [
-      // Add actual objects based on your answer structure
-      { /* Answer 1 properties */ },
-      { /* Answer 2 properties */ },
-      { /* Answer 3 properties */ },
-    ],
-    createdAt: new Date("2021-09-05T14:30:00.000Z"),
-  },
-  // Repeat the same pattern for the remaining questions
-  // ...
-];
-export default function Home() {
+
+export default async function Home() {
+
+   const result =await getQuestions({});
+
+   console.log(result.questions)
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center  ">
@@ -84,8 +43,8 @@ export default function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0
-          ? questions.map((question) => <QuestionCard
+        {result.questions.length > 0
+          ? result.questions.map((question) => <QuestionCard
           key={question._id}
           _id={question._id}
           title={question.title}
