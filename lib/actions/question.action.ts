@@ -7,7 +7,6 @@ import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
 import User from "@/database/user.model";
 import { revalidatePath } from "next/cache";
 
-export const runtime = 'nodejs';
 
 export async function getQuestions(params:GetQuestionsParams){
     try {
