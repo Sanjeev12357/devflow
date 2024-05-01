@@ -6,8 +6,8 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 
 const Page =async () => {
- //const {userId}=auth();
- //console.log("userId",userId )
+ // const {userId}=auth();
+ // console.log("userId",userId )
 const userId='CL123456';
   if(!userId) redirect('/sign-in');
 
