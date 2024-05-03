@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Stack Overflow clone built using Next.js 14, a popular React framework. The goal of this application is to provide a platform for developers to ask questions, share knowledge, and collaborate within a community-driven environment. Users can post questions, provide answers, vote on posts, and engage in discussions related to various programming topics.
+This project is a Stack Overflow clone built using Next.js 14,Clerk js for auth and tinymce for editor a popular React framework. The goal of this application is to provide a platform for developers to ask questions, share knowledge, and collaborate within a community-driven environment. Users can post questions, provide answers, vote on posts, and engage in discussions related to various programming topics.
 
 ## Features
 
