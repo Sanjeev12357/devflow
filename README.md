@@ -6,7 +6,7 @@ This project is a Stack Overflow clone built using Next.js 14,Clerk js for auth 
 
 ## Features
 
-- **User Authentication:** Users can sign up, log in, and manage their profiles.
+- **User Authentication:** Users can sign up, log in, and manage their profiles using clerk.
 - **Post Questions:** Users can ask questions on various programming topics.
 - **Answer Questions:** Users can provide answers to questions posted by others.
 - **Voting System:** Users can upvote or downvote both questions and answers.
