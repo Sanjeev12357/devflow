@@ -50,13 +50,6 @@ Welcome to our Stack Overflow clone, a platform designed to foster collaboration
 
 We welcome contributions to the project! Feel free to open issues or pull requests for bug fixes, features, or enhancements.
 
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-Special thanks to the Stack Overflow team for providing inspiration and guidance for building this application. Let's make this platform even more beautiful together!
 
 --- 
 
