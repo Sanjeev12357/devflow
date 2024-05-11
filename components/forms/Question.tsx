@@ -23,11 +23,12 @@ import { Badge } from "../ui/badge";
 import Image from "next/image";
 import { createQuestion } from "@/lib/actions/question.action";
 import { useRouter,usePathname } from "next/navigation";
+import { useTheme } from "@/context/ThemeProvider";
 const type: any = "create";
 interface Props {
   mongoUserId: string;
 }
-
+const {mode }=useTheme()
 const Question = ({ mongoUserId }: Props) => {
 
   const router=useRouter();
@@ -164,13 +165,11 @@ const Question = ({ mongoUserId }: Props) => {
                       height: 350,
                       menubar: false,
                       plugins: [
-                        "a11ychecker",
+                        
                         "advlist",
-                        "advcode",
-                        "advtable",
+                       
                         "autolink",
-                        "checklist",
-                        "export",
+                        
                         "codesample",
                         "lists",
                         "link",
@@ -180,9 +179,9 @@ const Question = ({ mongoUserId }: Props) => {
                         "anchor",
                         "searchreplace",
                         "visualblocks",
-                        "powerpaste",
+                      
                         "fullscreen",
-                        "formatpainter",
+                        
                         "insertdatetime",
                         "media",
                         "table",
@@ -196,6 +195,8 @@ const Question = ({ mongoUserId }: Props) => {
 
                       content_style:
                         "body { font-family:Inter; font-size:16px }",
+                        skin: mode === 'dark' ? 'oxide-dark' : 'oxide',
+                        content_css: mode=== 'dark' ? 'dark' : 'light',
                     }}
                   />
                 </FormControl>
