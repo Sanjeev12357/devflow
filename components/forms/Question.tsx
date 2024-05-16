@@ -28,9 +28,9 @@ const type: any = "create";
 interface Props {
   mongoUserId: string;
 }
-const {mode }=useTheme()
-const Question = ({ mongoUserId }: Props) => {
 
+const Question = ({ mongoUserId }: Props) => {
+  const {mode }=useTheme()
   const router=useRouter();
   const pathname=usePathname();
   const editorRef = useRef(null);
