@@ -1,12 +1,13 @@
 "use client"
 import { upvoteAnswer } from '@/lib/actions/answer.action'
+import { viewQuestion } from '@/lib/actions/interaction.action'
 import { downvoteQuestion, upvoteQuestion } from '@/lib/actions/question.action'
 import { toggleSaveQuestion } from '@/lib/actions/user.action'
 import { formatAndDivideNumber } from '@/lib/utils'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 interface Props{
   type:string,
@@ -90,6 +91,16 @@ const Votes =  ({type,
       path:pathname
     })
   }
+
+  useEffect(()=>{
+    viewQuestion({
+      questionId:JSON.parse(itemId),
+      userId:userId ? JSON.parse(userId) : undefined,
+
+    })
+
+   
+  },[itemId, userId,pathname,router])
   return (
     <div className='flex gap-5'>
 
