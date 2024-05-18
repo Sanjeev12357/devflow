@@ -2,14 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import RenderTag from "./RenderTag";
+import { getHotQuestions } from "@/lib/actions/question.action";
+import { getTopPopularTags } from "@/lib/actions/tag.actions";
 
-const hotQuestions = [
-  { _id: '1', title: "How do i use express as a custom server in Nextjs" },
-  { _id: '2', title: "How do i use express as a custom server in Nextjs" },
-  { _id: '3', title: "How do i use express as a custom server in Nextjs" },
-  { _id: '4', title: "How do i use express as a custom server in Nextjs" },
-  { _id: '4', title: "How do i use express as a custom server in Nextjs" },
-];
+
 const popularTags=[
     {_id:'1',name:"javascript",totalQuestions:5},
     {_id:'2',name:"javas",totalQuestions:5},
@@ -18,7 +14,10 @@ const popularTags=[
     {_id:'5',name:"javascript",totalQuestions:5},
 ]
 
-const RightSidebar = () => {
+const RightSidebar =async () => {
+
+ const hotQuestions =await getHotQuestions();
+  const popularTags=await getTopPopularTags();
   return (
     <section className="background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-xl:hidden lg:w-[350px]">
       <div>
@@ -52,7 +51,7 @@ const RightSidebar = () => {
                         key={tag._id}
                         _id={tag._id}
                         name={tag.name}
-                        totalQuestions={tag.totalQuestions}
+                        totalQuestions={tag.numberOfQuestions}
                         showCount
                         />
                     ))
