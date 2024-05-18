@@ -1,9 +1,10 @@
 "use client"
 import { Input } from '@/components/ui/input'
+import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils'
 import Image from 'next/image'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface CustomInputProps{
     route:string
@@ -28,6 +29,30 @@ const LocalSearchbar = ({
     console.log(query);
 
     const [search,setSearch]=useState( query || '');
+    useEffect(()=>{
+        const delayDebounceFn =setTimeout(()=>{
+            if(search){
+                const newUrl=formUrlQuery({
+                    params:searchParams.toString(),
+                    key:'q',
+                    value:search
+                })
+
+                router.push(newUrl,{scroll:false});
+            }else {
+                if(pathname === route){
+                    const newUrl=removeKeysFromQuery({
+                        params:searchParams.toString(),
+                        keysToRemove:['q']
+                    })
+                    router.push(newUrl,{scroll:false});
+                }
+            }
+        },300)
+
+        return ()=>clearTimeout(delayDebounceFn);
+
+    },[search,route,pathname,router,searchParams,query])
   return (
     <div className={`background-light800_darkgradient flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 ${otherClasses} `}>
         {iconPosition === "left" && (
