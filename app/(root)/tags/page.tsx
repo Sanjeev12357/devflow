@@ -2,6 +2,7 @@
 import UserCard from '@/components/cards/UserCard'
 import Filter from '@/components/shared/Filter'
 import NoResult from '@/components/shared/NoResult'
+import Pagination from '@/components/shared/Pagination'
 import LocalSearchbar from '@/components/shared/search/LocalSearchbar'
 
 import {  TagFilters } from '@/constants/filters'
@@ -16,7 +17,8 @@ const Page = async ({searchParams}:SearchParamsProps) => {
 
    const result =await getAllTags({
     searchQuery:searchParams.q,
-    filter:searchParams.filter
+    filter:searchParams.filter,
+    page:searchParams.page ? +searchParams.page : 1
    })
    console.log(result.tags)
   return (
@@ -70,8 +72,16 @@ const Page = async ({searchParams}:SearchParamsProps) => {
           linkTitle='Ask a Question'
           />)}
       </section>
-      
-    </>
+      <div className="mt-10">
+
+        <Pagination
+        pageNumber={searchParams?.page ? +searchParams.page :1}
+        isNext={result.isNext}
+        />
+      </div>
+
+      </>
+
   )
 }
 
