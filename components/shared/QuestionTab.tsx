@@ -1,4 +1,4 @@
-import { getUserQuestions } from "@/lib/actions/user.action";
+import { getUserQUestions } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
 import React from "react";
 import QuestionCard from "../cards/QuestionCard";
@@ -10,7 +10,7 @@ interface Props extends SearchParamsProps {
 }
 
 const QuestionTab = async ({ searchParams, userId, clerkId }: Props) => {
-  const result = await getUserQuestions({
+  const result = await getUserQUestions({
     userId,
     page: searchParams.page ? +searchParams.page : 1,
   });
