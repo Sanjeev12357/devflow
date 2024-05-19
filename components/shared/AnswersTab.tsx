@@ -2,8 +2,9 @@
 import { SearchParamsProps } from '@/types'
 import React from 'react'
 import AnswerCard from '../cards/AnswerCard';
-import { getUserAnswers } from '@/lib/actions/user.action';
+
 import Pagination from './Pagination';
+import { getUserAnswers } from '@/lib/actions/user.action';
 
 interface Props extends SearchParamsProps{
     userId:string;
