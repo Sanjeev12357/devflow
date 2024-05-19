@@ -17,6 +17,8 @@ if(!userId) return null;
    const result =await getSavedQuestions({
     clerkId:userId,
     searchQuery:searchParams.q,
+    filter:searchParams.filter,
+    page:searchParams.page ? +searchParams.page : 1
    });
 
    console.log(result.questions)
