@@ -4,6 +4,7 @@ import {ReloadIcon} from "@radix-ui/react-icons"
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import GlobalFilters from './GlobalFilters';
 const GlobalResult = () => {
     const searchParams=useSearchParams();
     const [isLoading,setIsLoading]=useState(false);
@@ -41,7 +42,7 @@ const GlobalResult = () => {
 
   return (
     <div className='absolute top-full z-10 mt-3 w-full bg-light-800 py-5 shadow-sm dark:bg-dark-400 rounded-xl'>
-        Filters
+        <GlobalFilters/>
         <div className='my-5 h-[1px] bg-light-700/50 dark:bg-dark-500/50'>
         
         </div>
