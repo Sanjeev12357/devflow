@@ -109,6 +109,15 @@ export async function createQuestion(params: CreateQuestionParams) {
     revalidatePath(path);
 
     // create  an interaction record for the user's ask_question action
+    await Interaction.create({
+      user:author,
+      action:'ask-question',
+      question:question._id,
+      tags:tagDocuments,
+
+    })
+
+    await User.findByIdAndUpdate(author,{$inc:{reputation:5}})
 
     // increment author's rputation by+5 for creating a question
   } catch (error) {}
@@ -162,6 +171,15 @@ export async function upvoteQuestion (params:QuestionVoteParams){
     }
 
     // Incrwement authors reputation by+10  for upvoting author reputation
+    await User.findByIdAndUpdate(userId,{
+      $inc:{reputation:hasupVoted ? -1 :1}
+    
+    })
+
+    // Increment author reputation by +10/-10 FOR RECIEVI N
+    await User.findByIdAndUpdate(question.author,{
+      $inc:{reputation:hasupVoted ?-10 :10}
+    })
 
     revalidatePath(path)
     
@@ -203,7 +221,8 @@ export async function downvoteQuestion (params:QuestionVoteParams){
     }
 
     // Incrwement authors reputation by+10  for upvoting author reputation
-    
+    await User.findByIdAndUpdate(userId,{$inc:{reputation:hasupVoted ? -2 :2}})
+      await User.findByIdAndUpdate(question.author,{$inc:{reputation:hasupVoted ? -10 :10}})
     revalidatePath(path)
     
   } catch (error) {
