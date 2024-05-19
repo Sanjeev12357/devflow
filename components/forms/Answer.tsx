@@ -19,6 +19,7 @@ interface Props{
 const Answer = ({question,questionId,authorId}:Props) => {
     const pathname=usePathname()
     const [isSubmitting,setIsSubmitting]=useState(false)
+    const [isSubmittingAi,setIsSubmittingAi]=useState(false)
     const {mode }=useTheme()
     const editorRef=useRef(null)
     const form =useForm<z.infer<typeof AnswerSchema>>({
@@ -28,6 +29,7 @@ const Answer = ({question,questionId,authorId}:Props) => {
         }
     })
 
+   
     const handleCreateAnswer=async(values:z.infer<typeof AnswerSchema>)=>{
         setIsSubmitting(true)
         try {

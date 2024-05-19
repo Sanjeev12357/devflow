@@ -11,6 +11,13 @@ import { SearchParamsProps } from "@/types";
 
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata:Metadata={
+  title:"Home | Dev Overflow",
+  description:"Dev Overflow is a community of developers, where you can ask questions, share your knowledge, and learn from others.",
+
+}
 
 export default async function Home({searchParams }:SearchParamsProps) {
 
