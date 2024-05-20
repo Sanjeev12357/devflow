@@ -111,7 +111,7 @@ const Question = ({ mongoUserId, type, questionDetails }: Props) => {
           content: values.explanation,
           path,
         });
-        router.push(`/questions/${parsedQuestionDetails._id}`);
+        router.push(`/s/${parsedQuestionDetails._id}`);
       } else {
         await createQuestion({
           title: values.title,
@@ -169,7 +169,7 @@ const Question = ({ mongoUserId, type, questionDetails }: Props) => {
               </FormLabel>
               <FormControl className="mt-3.5">
                 <Editor
-                  apiKey={process.env.NEXT_PUBLIC_TINY_MCE_API_KEY}
+                  apiKey={process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY}
                   onInit={(evt, editor) => {
                     // @ts-ignore
                     editorRef.current = editor;

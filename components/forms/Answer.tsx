@@ -102,7 +102,7 @@ const Answer = ({question,questionId,authorId}:Props) => {
                       menubar: false,
                       plugins: [
                        
-                        "advlist",
+                       
                         
                         "autolink",
                         
