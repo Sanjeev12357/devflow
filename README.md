@@ -1,7 +1,7 @@
-Absolutely, let's add some flair to your README! Here's an enhanced version with emojis and some formatting improvements:
-🚀 **Check out the live app:** [DevFlow](https://devflow-sage.vercel.app/)
+
 
 ---
+🚀 **Check out the live app:** [DevFlow](https://devflow-sage.vercel.app/)
 
 # 🚀 Stack Overflow Clone with Next.js 14
 
